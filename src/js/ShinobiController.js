@@ -19,6 +19,13 @@ class ShinobiController {
       .then(dao => dao.load())
 
   }
+
+  get() {
+    return ConnectionFactory 
+      .create()
+      .then(connection => new ShinobiDAO(connection))
+      .then(dao => dao.get())
+  }
 }
 
 const shinobiController = new ShinobiController();

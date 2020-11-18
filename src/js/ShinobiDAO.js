@@ -22,32 +22,47 @@ class ShinobiDAO {
     })
   }
 
-    load() {
+  get() {
 
-      return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
 
-        const shinobiList = [];
+      const transaction = this.db.transaction(["shinobis"], "readwrite");
 
-        const objectStore = this.db.transaction(["shinobis"], "readonly").objectStore("shinobis");
+      const request = transaction.objectStore("shinobis").get(1);
 
-        objectStore.openCursor().onsuccess = event => {
-          let cursor = event.target.result;
+      request.onsuccess = event => {
+        console.log(request.result)
+        resolve(request.result);
+      }
+    })
+  }
 
-          if (cursor) {
-            shinobiList.push(new Shinobi(...(Object.values(cursor.value))))
-            cursor.continue();
-          } else {
-            resolve(shinobiList)
-          }
+  load() {
 
+    return new Promise((resolve, reject) => {
+
+      const shinobiList = [];
+
+      const objectStore = this.db.transaction(["shinobis"], "readonly").objectStore("shinobis");
+
+      objectStore.openCursor().onsuccess = event => {
+        let cursor = event.target.result;
+
+        if (cursor) {
+          shinobiList.push(new Shinobi(...(Object.values(cursor.value))))
+          cursor.continue();
+        } else {
+          resolve(shinobiList)
         }
-      })
-    }
-    
+
+      }
+    })
+  }
+
 }
 
 class Shinobi {
-  constructor(name, cla, position, bio, FOR,RES,AGL,DEX,PER,INT,CAR,FOC) {
+  constructor(name, cla, position, bio, FOR, RES, AGL, DEX, PER, INT, CAR, FOC) {
     this._name = name;
     this._cla = cla || "Nara";
     this._position = position || "Gennin";
