@@ -2,15 +2,13 @@ import ConnectionFactory from "./ConnectionFactory";
 import ShinobiDAO from "./ShinobiDAO";
 
 class ShinobiController {
-  constructor() {
-    
-  }
 
-  add(shinobi) {
+
+  add(name, cla) {
     ConnectionFactory
       .create()
       .then(connection => new ShinobiDAO(connection))
-      .then(dao => dao.add(shinobi))
+      .then(dao => dao.add(name, cla))
       .then(msg => console.log(msg))
   }
 

@@ -7,7 +7,9 @@ class ShinobiDAO {
     return new Shinobi("Tanzan", "Haruno");
   }
 
-  add(shinobi) {
+  add(name, cla) {
+
+    const shinobi = new Shinobi(name, cla);
 
     return new Promise((resolve, reject) => {
       const transaction = this.db.transaction(["shinobis"], "readwrite");
@@ -32,11 +34,11 @@ class ShinobiDAO {
           let cursor = event.target.result;
 
           if (cursor) {
-            shinobiList.push(cursor.value);
+            shinobiList.push(new Shinobi(...(Object.values(cursor.value))))
             cursor.continue();
+          } else {
+            resolve(shinobiList)
           }
-
-          resolve(shinobiList);
 
         }
       })
@@ -45,21 +47,21 @@ class ShinobiDAO {
 }
 
 class Shinobi {
-  constructor(name, cla, position) {
+  constructor(name, cla, position, bio, FOR,RES,AGL,DEX,PER,INT,CAR,FOC) {
     this._name = name;
     this._cla = cla || "Nara";
     this._position = position || "Gennin";
 
-    this._bio = "";
+    this._bio = bio || "";
 
-    this._FOR = 5;
-    this._RES = 5;
-    this._AGL = 5;
-    this._DEX = 5;
-    this._PER = 5;
-    this._INT = 5;
-    this._CAR = 5;
-    this._FOC = 5;
+    this._FOR = FOR || 5;
+    this._RES = RES || 5;
+    this._AGL = AGL || 5;
+    this._DEX = DEX || 5;
+    this._PER = PER || 5;
+    this._INT = INT || 5;
+    this._CAR = CAR || 5;
+    this._FOC = FOC || 5;
 
     this._maxHP = undefined;
     this._actHP = undefined;
