@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./style.css";
 
 function General(props) {
@@ -14,10 +14,6 @@ function General(props) {
   const [FOC, setFOC] = useState(shinobi.FOC);
 
   const [bio, setBio] = useState("aff");
-
-  // useEffect(() => {
-  //   const bio = document.querySelector("#bio");
-  // });
 
   return (
     <>
