@@ -5,7 +5,6 @@ import shinobiController from "./../../js/ShinobiController";
 import AddButton from "./components/AddButton/AddButton";
 import CharacterCard from "./components/CharacterCard/CharacterCard";
 
-
 function CharacterList(props) {
 
   const [list, setList] = useState([]);
@@ -18,11 +17,11 @@ function CharacterList(props) {
     <div className="CharacterList">
       <Header />
 
-      <ul className="CharacterList_list" onClick={() => console.log(list)}>
+      <ul className="CharacterList_list">
         {list.map((shinobi, id) => {
           return (
             <li onClick={() => {
-             props.goToShinobiProfile();
+             props.goToShinobiProfile(id);
             }} key={id}>
               <CharacterCard shinobi={shinobi}/>
             </li>

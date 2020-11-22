@@ -7,7 +7,7 @@ function ShinobiProfile(props) {
   const [idx, setIdx] = useState(0);
 
   const pages = [<General shinobi={props.shinobi} />, <p>cachaça</p>];
-
+  console.log(props.shinobi)
   return (
     <div className="ShinobiProfile">
       {pages[idx]}

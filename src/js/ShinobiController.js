@@ -9,7 +9,6 @@ class ShinobiController {
       .create()
       .then(connection => new ShinobiDAO(connection))
       .then(dao => dao.add(name, cla))
-      .then(msg => console.log(msg))
   }
 
   load() {
