@@ -12,16 +12,20 @@ export default function App() {
 
   const [shinobi, setShinobi] = useState(ShinobiDAO.example());
 
-  const goToShinobiProfile = (id) => {
+  function goToShinobiProfile(id) {
   	shinobiController
   		.get(id+1)
   		.then(res => {
   			setShinobi(res);
   			setPageIdx(1);
   		})
-    
   }
-  const pages = [<CharacterList goToShinobiProfile={goToShinobiProfile} />, <ShinobiProfile shinobi={shinobi} />]
+
+  function goToCharacterList() {
+    setPageIdx(0);
+  }
+
+  const pages = [<CharacterList goToShinobiProfile={goToShinobiProfile} />, <ShinobiProfile shinobi={shinobi} goToCharacterList={goToCharacterList} />]
 
 
 

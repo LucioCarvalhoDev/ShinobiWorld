@@ -10,10 +10,7 @@ function General(props) {
   return (
     <>
       <section className="General card">
-        <h3 className="General_name">{shinobi.fullName()}</h3>
-        <h4 className="General_position">
-          {shinobi._position} | {shinobi.rank}
-        </h4>
+        
       </section>
       <section className="ShinobiProfile_status card">
         <div className="physical">
