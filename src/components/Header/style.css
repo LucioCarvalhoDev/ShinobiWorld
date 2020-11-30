@@ -1,3 +1,13 @@
 .Header {
 	padding: 1%;
+	background: #8d7050;
+	color: #fdfdfd;
+	border-bottom-right-radius: 100px;
+	display: flex;
+	margin-bottom: 5px;
+	align-items: center;
+}
+
+.Header_return {
+	margin: 0px 5px;
 }

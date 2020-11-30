@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import TextArea from "../TextArea/TextArea";
+import SectionBox from "./../SectionBox";
+
 import "./style.css";
 
 function General(props) {
@@ -8,11 +11,16 @@ function General(props) {
   const [bio, setBio] = useState(shinobi._bio);
 
   return (
-    <>
-      <section className="General card">
+    <section className="General">
+      <SectionBox>
         
-      </section>
-      <section className="ShinobiProfile_status card">
+        <TextArea
+          title="Apelido/titulo"
+          id="ipt-name"
+          placeholder="Relampago de Konoha"
+          rows="2"/>
+      </SectionBox>
+      <SectionBox>
         <div className="physical">
           <p>FOR: {shinobi.FOR}</p>
           <p>RES: {shinobi.RES}</p>
@@ -25,8 +33,8 @@ function General(props) {
           <p>CAR: {shinobi.CAR}</p>
           <p>FOC: {shinobi.FOC}</p>
         </div>
-      </section>
-      <section className="card">
+      </SectionBox>
+      <SectionBox className="card">
         <h4>Bio</h4>
         <textarea onChange={(event) => {
           event.stopPropagation();
@@ -39,8 +47,8 @@ function General(props) {
           cols="30"
           rows="10"
         ></textarea>
-      </section>
-    </>
+      </SectionBox>
+    </section>
   );
 }
 

@@ -25,7 +25,10 @@ export default function App() {
     setPageIdx(0);
   }
 
-  const pages = [<CharacterList goToShinobiProfile={goToShinobiProfile} />, <ShinobiProfile shinobi={shinobi} goToCharacterList={goToCharacterList} />]
+  const pages = [
+    <CharacterList goToShinobiProfile={goToShinobiProfile} />,
+    <ShinobiProfile shinobi={shinobi} goToCharacterList={goToCharacterList} />
+  ]
 
 
 

@@ -2,14 +2,9 @@
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
-  padding: 5px 5px 0px 5px;
 }
 
-.card {
-  border: 1px solid black;
-  padding: 1%;
-  margin-bottom: 1.5%;
-}
+
 
 .ShinobiProfile_status {
   display: grid;
