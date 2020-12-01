@@ -18,7 +18,7 @@ function General(props) {
           title="Apelido/titulo"
           id="ipt-name"
           placeholder="Relampago de Konoha"
-          rows="2"/>
+          rows="3"/>
       </SectionBox>
       <SectionBox>
         <div className="physical">
