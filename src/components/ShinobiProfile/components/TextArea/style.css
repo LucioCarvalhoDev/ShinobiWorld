@@ -1,0 +1,29 @@
+.TextArea {
+    border: 1px solid #8d7050;
+    padding: .124rem;
+    border-radius: 5px;
+    min-height: 2rem;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    margin: 5px 0px;
+  }
+  
+  .TextArea > label {
+    position: absolute;
+    background: #fdfdfd;
+    top: -.7rem;
+    left: 10px;
+    padding: 0px 5px;
+  }
+  
+  .TextArea > textarea {
+    margin-top: 5px;
+    border: none;
+    width: 100%;
+    min-height: 1.25rem;
+  }
+  
+  .TextArea > textarea:focus {
+    outline: none;
+  }

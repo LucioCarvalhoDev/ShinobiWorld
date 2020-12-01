@@ -31,8 +31,8 @@ class ShinobiDAO {
       const request = transaction.objectStore("shinobis").get(1);
 
       request.onsuccess = event => {
-        console.log(request.result)
-        resolve(request.result);
+        
+        resolve(new Shinobi(...(Object.values(request.result))));
       }
     })
   }
@@ -86,7 +86,7 @@ class Shinobi {
     this._ckType = [];
   }
 
-  get fullName() {
+  fullName() {
     return this._name + " " + this._cla;
   }
 

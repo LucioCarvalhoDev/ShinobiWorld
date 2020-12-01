@@ -1,56 +1,54 @@
 import React, { useState } from "react";
+import TextArea from "../TextArea/TextArea";
+import SectionBox from "./../SectionBox";
+
 import "./style.css";
 
 function General(props) {
+
   const shinobi = props.shinobi;
 
-  const [FOR, setFOR] = useState(shinobi.FOR);
-  const [RES, setRES] = useState(shinobi.RES);
-  const [AGL, setAGL] = useState(shinobi.AGL);
-  const [DEX, setDEX] = useState(shinobi.DEX);
-  const [INT, setINT] = useState(shinobi.INT);
-  const [PER, setPER] = useState(shinobi.PER);
-  const [CAR, setCAR] = useState(shinobi.CAR);
-  const [FOC, setFOC] = useState(shinobi.FOC);
-
-  const [bio, setBio] = useState("aff");
+  const [bio, setBio] = useState(shinobi._bio);
 
   return (
-    <>
-      <section className="General card">
-        <h3 className="General_name">{shinobi.fullName}</h3>
-        <h4 className="General_position">
-          {shinobi._position} | {shinobi.rank}
-        </h4>
-      </section>
-      <section className="ShinobiProfile_status card">
+    <section className="General">
+      <SectionBox>
+        
+        <TextArea
+          title="Apelido/titulo"
+          id="ipt-name"
+          placeholder="Relampago de Konoha"
+          rows="2"/>
+      </SectionBox>
+      <SectionBox>
         <div className="physical">
-          <p>FOR: {FOR}</p>
-          <p>RES: {RES}</p>
-          <p>AGL: {AGL}</p>
-          <p>DEX: {DEX}</p>
+          <p>FOR: {shinobi.FOR}</p>
+          <p>RES: {shinobi.RES}</p>
+          <p>AGL: {shinobi.AGL}</p>
+          <p>DEX: {shinobi.DEX}</p>
         </div>
         <div className="spirit">
-          <p>INT: {INT}</p>
-          <p>PER: {PER}</p>
-          <p>CAR: {CAR}</p>
-          <p>FOC: {FOC}</p>
+          <p>INT: {shinobi.INT}</p>
+          <p>PER: {shinobi.PER}</p>
+          <p>CAR: {shinobi.CAR}</p>
+          <p>FOC: {shinobi.FOC}</p>
         </div>
-      </section>
-      <section className="card">
+      </SectionBox>
+      <SectionBox className="card">
         <h4>Bio</h4>
-        <textarea
-          onChange={(event) => {
-            event.stopPropagation();
-            shinobi._bio = event.target.value;
-          }}
+        <textarea onChange={(event) => {
+          event.stopPropagation();
+          setBio(event.target.value);
+        }}
+          
+          defaultValue={bio}
           name="bio"
           id="bio"
           cols="30"
           rows="10"
         ></textarea>
-      </section>
-    </>
+      </SectionBox>
+    </section>
   );
 }
 
