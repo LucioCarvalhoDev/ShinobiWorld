@@ -2,9 +2,18 @@ import React from "react";
 
 import "./style.css";
 
-function AddButton() {
+function AddButton(props) {
 
-  return <div className="AddButton">+</div>;
+  return (
+    <div
+      className="AddButton"
+      onClick={() => {
+        props.action();
+      }}
+    >
+      +
+    </div>
+  );
 }
 
 export default AddButton;

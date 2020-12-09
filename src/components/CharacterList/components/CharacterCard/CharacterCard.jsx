@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import ShinobiDAO from "../../../../js/ShinobiDAO";
+import React from "react";
+
+import "./style.css";
 
 function CharacterCard(props) {
 

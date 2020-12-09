@@ -1,4 +1,4 @@
-.TextArea {
+.TextInput {
     border: 1px solid #8d7050;
     padding: .124rem;
     border-radius: 5px;
@@ -7,23 +7,26 @@
     display: flex;
     align-items: flex-end;
     margin: 5px 0px;
-  }
-  
-  .TextArea > label {
+    background: #fdfdfd;
+    margin-bottom: 1rem;
+}
+
+.TextInput label {
     position: absolute;
     background: #fdfdfd;
     top: -.7rem;
-    left: 10px;
-    padding: 0px 5px;
-  }
-  
-  .TextArea > textarea {
-    margin-top: 5px;
+    left: 5px;
+    padding: 0px 2px;
+    font-size: .9rem;
+}
+
+.TextInput input {
     border: none;
     width: 100%;
     min-height: 1.25rem;
-  }
-  
-  .TextArea > textarea:focus {
+    padding: 0 5px;
+}
+
+.TextInput input:focus {
     outline: none;
-  }
+}

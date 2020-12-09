@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TextArea from "../TextArea/TextArea";
+import TextArea from "../../../inputs/TextArea/TextArea";
 import SectionBox from "./../SectionBox";
 
 import "./style.css";

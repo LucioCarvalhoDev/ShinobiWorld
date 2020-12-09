@@ -1,0 +1,13 @@
+.CharacterCard {
+    background: var(--secundary-color);
+    margin: 0 auto;
+    margin-bottom: 5px;
+    width: 98vw;
+    height: 2rem;
+    box-sizing: border-box;
+    padding: 0 5px;
+}
+
+.CharacterCard:hover {
+    cursor: pointer;
+}

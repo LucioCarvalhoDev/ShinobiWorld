@@ -2,14 +2,15 @@ import React, {useState, useEffect} from "react";
 import Header from "../Header/Header";
 
 import shinobiController from "./../../js/ShinobiController";
-import AddButton from "./components/AddButton/AddButton";
-import CharacterCard from "./components/CharacterCard/CharacterCard";
+import AddButton from "./components/AddButton/";
+import CharacterCard from "./components/CharacterCard/";
+import ModalAdd from "./components/ModalAdd";
 
 function CharacterList(props) {
 
   const [list, setList] = useState([]);
 
-  
+  const [modalAdd, setModalAdd] = useState(false);
 
   useEffect(() => {
     shinobiController
@@ -18,6 +19,10 @@ function CharacterList(props) {
       if (JSON.stringify(list) !== JSON.stringify(res)) setList(res);
     });
   })
+
+  function handlerModalAdd() {
+    setModalAdd(!modalAdd);
+  }
     
   return (
     <div className="CharacterList">
@@ -33,9 +38,10 @@ function CharacterList(props) {
             </li>
           );
         })}
+        {modalAdd && <ModalAdd addShinobi={props.addShinobi} close={handlerModalAdd}/>}
       </ul>
 
-      <AddButton />
+      <AddButton action={handlerModalAdd}/>
     </div>
   );
 }
