@@ -14,7 +14,7 @@ export default function App() {
 
   function goToShinobiProfile(id) {
   	shinobiController
-  		.get(id+1)
+  		.get(id)
   		.then(res => {
   			setShinobi(res);
   			setPageIdx(1);

@@ -7,28 +7,34 @@ class ShinobiDAO {
     return new Shinobi("Tanzan", "Haruno");
   }
 
-  add(name, cla) {
+  add(name) {
 
-    const shinobi = new Shinobi(name, cla);
-
+    const shinobi = new Shinobi(name);
+    
     return new Promise((resolve, reject) => {
       const transaction = this.db.transaction(["shinobis"], "readwrite");
+      
+      let shinobis = transaction.objectStore("shinobis");
 
-      transaction.objectStore("shinobis").add(shinobi);
+      let request = shinobis.add(shinobi);
 
-      transaction.oncomplete = event => {
+      request.oncomplete = event => {
         resolve("shinobi registrado com sucesso");
+      }
+
+      request.onerror = event => {
+        reject("erro ao registrar o shinobi");
       }
     })
   }
 
-  get() {
+  get(id) {
 
     return new Promise((resolve, reject) => {
 
       const transaction = this.db.transaction(["shinobis"], "readwrite");
 
-      const request = transaction.objectStore("shinobis").get(1);
+      const request = transaction.objectStore("shinobis").get(id);
 
       request.onsuccess = event => {
         
@@ -40,21 +46,27 @@ class ShinobiDAO {
   load() {
 
     return new Promise((resolve, reject) => {
-
+      
       const shinobiList = [];
 
       const objectStore = this.db.transaction(["shinobis"], "readonly").objectStore("shinobis");
 
-      objectStore.openCursor().onsuccess = event => {
+      const request = objectStore.openCursor();
+      
+      request.onsuccess = event => {
         let cursor = event.target.result;
 
         if (cursor) {
           shinobiList.push(new Shinobi(...(Object.values(cursor.value))))
           cursor.continue();
         } else {
+          console.log(shinobiList)
           resolve(shinobiList)
         }
+      }
 
+      request.onerror = event => {
+        resolve("erro ao carregar dados");
       }
     })
   }
@@ -62,10 +74,12 @@ class ShinobiDAO {
 }
 
 class Shinobi {
-  constructor(name, cla, position, bio, FOR, RES, AGL, DEX, PER, INT, CAR, FOC) {
-    this._name = name;
-    this._cla = cla || "Nara";
-    this._position = position || "Gennin";
+  constructor(name, id, cla, position, bio, FOR, RES, AGL, DEX, PER, INT, CAR, FOC) {
+    this._name = name || " ";
+    this.id = id || Date.now();
+    this._cla = cla || " ";
+    this._position = position || " ";
+
 
     this._bio = bio || "";
 
@@ -86,8 +100,8 @@ class Shinobi {
     this._ckType = [];
   }
 
-  fullName() {
-    return this._name + " " + this._cla;
+  get fullName() {
+    return `${this._name} ${this._cla}`;
   }
 
   get FOR() {

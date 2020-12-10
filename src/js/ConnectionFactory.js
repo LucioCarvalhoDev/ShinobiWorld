@@ -9,7 +9,7 @@ class ConnectionFactory {
         let connection = event.target.result;
 
         if (!connection.objectStoreNames.contains("shinobis")) {
-          connection.createObjectStore("shinobis", {autoIncrement: true})
+          connection.createObjectStore("shinobis", {keyPath: 'id'})
         }
       }
 

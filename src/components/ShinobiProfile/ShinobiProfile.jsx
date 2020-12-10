@@ -12,7 +12,7 @@ function ShinobiProfile(props) {
   return (
     <div className="ShinobiProfile">
     
-      <Header title={props.shinobi.fullName()} activeReturn="true" action={props.goToCharacterList}/>
+      <Header title={props.shinobi.fullName} activeReturn="true" action={props.goToCharacterList}/>
 
       {pages[idx]}
       <Nav
