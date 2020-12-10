@@ -26,6 +26,13 @@ class ShinobiController {
       .then(connection => new ShinobiDAO(connection))
       .then(dao => dao.get(idx))
   }
+
+  del(idx) {
+    return ConnectionFactory
+      .create()
+      .then(connection => new ShinobiDAO(connection))
+      .then(dao => dao.del(idx));
+  }
 }
 
 const shinobiController = new ShinobiController();

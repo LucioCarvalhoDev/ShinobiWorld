@@ -8,12 +8,6 @@ import ModalAdd from "./components/ModalAdd";
 
 function CharacterList(props) {
 
-  shinobiController
-    .load()
-    .then(res => {
-      console.log(res);
-    })
-
   const [list, setList] = useState([]);
 
   const [modalAdd, setModalAdd] = useState(false);
@@ -37,8 +31,16 @@ function CharacterList(props) {
       <ul className="CharacterList_list">
         {list.map((shinobi, id) => {
           return (
-            <li onClick={() => {
-             props.goToShinobiProfile(shinobi.id);
+            <li onClick={(e) => {
+              if (!e.target.classList.contains("fas")) {
+
+                props.goToShinobiProfile(shinobi.id);
+              } else {
+
+                shinobiController.del(shinobi.id)
+                  .then(res => setList(res));
+              }
+              
             }} key={id}>
               <CharacterCard shinobi={shinobi}/>
             </li>

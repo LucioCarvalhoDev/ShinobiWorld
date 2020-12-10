@@ -71,6 +71,25 @@ class ShinobiDAO {
     })
   }
 
+  del(idx) {
+    return new Promise((resolve, reject) => {
+
+      const transaction = this.db.transaction(["shinobis"], "readwrite");
+      
+      let shinobis = transaction.objectStore("shinobis");
+
+      let request = shinobis.delete(idx);
+
+      request.onsuccess = e => {
+        resolve(this.load());
+      }
+
+      request.onerror = e => {
+        reject("Não foi possivel apagar o registro");
+      }
+    })
+  }
+
 }
 
 class Shinobi {
