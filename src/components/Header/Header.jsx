@@ -16,7 +16,7 @@ function Header(props) {
 			className="Header_return" 
 			onClick={() => func()}
 		>
-			{"<"}
+			<i className="fas fa-arrow-left"></i>
 		</div>
 		);
 	}

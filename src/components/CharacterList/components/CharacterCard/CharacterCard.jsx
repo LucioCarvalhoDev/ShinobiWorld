@@ -6,8 +6,6 @@ function CharacterCard(props) {
 
   const shinobi = props.shinobi;
   
-  console.log(shinobi)
-
   return (
     <article className="CharacterCard">
       <div>

@@ -1,3 +1,5 @@
+const devMode = false;
+
 class ShinobiDAO {
   constructor(db) {
     this.db = db;
@@ -60,7 +62,7 @@ class ShinobiDAO {
           shinobiList.push(new Shinobi(...(Object.values(cursor.value))))
           cursor.continue();
         } else {
-          console.log(shinobiList)
+          devMode && console.log(shinobiList)
           resolve(shinobiList)
         }
       }

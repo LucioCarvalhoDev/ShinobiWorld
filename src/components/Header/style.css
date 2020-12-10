@@ -12,3 +12,7 @@
 .Header_return {
 	margin: 0px 5px;
 }
+
+.Header_return:hover {
+	cursor: pointer;	
+}
