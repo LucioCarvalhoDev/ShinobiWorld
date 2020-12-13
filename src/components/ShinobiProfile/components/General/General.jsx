@@ -16,7 +16,7 @@ function General(props) {
         
         <TextArea
           title="Apelido/titulo"
-          id="ipt-name"
+          id="General_ipt-name"
           placeholder="Relampago de Konoha"
           rows="3"/>
       </SectionBox>
@@ -35,18 +35,9 @@ function General(props) {
         </div>
       </SectionBox>
       <SectionBox className="card">
-        <h4>Bio</h4>
-        <textarea onChange={(event) => {
-          event.stopPropagation();
-          setBio(event.target.value);
-        }}
-          
-          defaultValue={bio}
-          name="bio"
-          id="bio"
-          cols="30"
-          rows="10"
-        ></textarea>
+        <TextArea 
+          title="bio"
+          id="General_ipt-bio"/>
       </SectionBox>
     </section>
   );

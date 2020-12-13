@@ -1,7 +1,8 @@
 .TextArea {
-    box-shadow: 1px 1px 4px #8d7050;
+    box-shadow: inset 0px 0px 1px var(--secundary-color);
     padding: .124rem;
     border-radius: 5px;
+    border: 1px solid var(--primary-color);
     min-height: 2rem;
     position: relative;
     display: flex;
