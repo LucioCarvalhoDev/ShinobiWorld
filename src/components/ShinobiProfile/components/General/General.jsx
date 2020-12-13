@@ -18,11 +18,17 @@ function General(props) {
           title="Apelido/titulo"
           id="General_ipt-name"
           placeholder="Relampago de Konoha"
-          rows="3" />
+          rows="3" 
+          />
       </SectionBox>
       <SectionBox>
 
-        
+        <TextArea 
+          title="País de Origem"
+          id="General_ipt-pais"/>
+        <TextArea 
+          title="Clã"
+          id="General_ipt-cla"/>
       </SectionBox>
       <SectionBox className="card">
         <TextArea

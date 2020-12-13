@@ -1,14 +1,13 @@
 .TextArea {
     box-shadow: inset 0px 0px 1px var(--secundary-color);
-    padding: .124rem;
     border-radius: 5px;
     border: 1px solid var(--primary-color);
-    min-height: 2rem;
     position: relative;
     display: flex;
     align-items: flex-end;
     margin: 5px 0px;
     background: #fdfdfd;
+    padding: 0 5px;
   }
 
   .TextArea + .TextArea {
@@ -22,7 +21,8 @@
     left: 10px;
     padding: 0px 5px;
     height: 0rem;
-    font-size: 1rem;
+    font-size: .9rem;
+    color: #66513b;
   }
 
   .TextArea_background {

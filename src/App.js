@@ -26,8 +26,12 @@ export default function App() {
   }
 
   const pages = [
-    <CharacterList goToShinobiProfile={goToShinobiProfile} addShinobi={shinobiController.add.bind(shinobiController)}/>,
-    <ShinobiProfile shinobi={shinobi} goToCharacterList={goToCharacterList} />
+    <CharacterList 
+      goToShinobiProfile={goToShinobiProfile} 
+      addShinobi={shinobiController.add.bind(shinobiController)}/>,
+    <ShinobiProfile 
+      shinobi={shinobi} 
+      goToCharacterList={goToCharacterList} />
   ]
 
 

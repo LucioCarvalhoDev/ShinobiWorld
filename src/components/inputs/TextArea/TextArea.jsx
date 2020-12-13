@@ -17,8 +17,12 @@ function TextArea(props) {
         <div className="TextArea">
           <div className="TextArea_background" style={style}></div>
           <label htmlFor={props.id}>{props.title}</label>
-          <textarea id={props.id} type="text" placeholder={props.placeholder} rows={props.rows}
-          />
+          <textarea 
+            id={props.id} 
+            type="text" 
+            placeholder={props.placeholder} 
+            rows={props.rows}
+            onChange={(e) => console.log(e.target.value)}/>
         </div>
     );
 }
