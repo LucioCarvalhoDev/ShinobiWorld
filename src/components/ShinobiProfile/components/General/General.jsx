@@ -13,31 +13,30 @@ function General(props) {
   return (
     <section className="General">
       <SectionBox>
-        
+
         <TextArea
           title="Apelido/titulo"
           id="General_ipt-name"
           placeholder="Relampago de Konoha"
-          rows="3"/>
+          rows="3" />
       </SectionBox>
       <SectionBox>
-        <div className="physical">
-          <p>FOR: {shinobi.FOR}</p>
-          <p>RES: {shinobi.RES}</p>
-          <p>AGL: {shinobi.AGL}</p>
-          <p>DEX: {shinobi.DEX}</p>
-        </div>
-        <div className="spirit">
-          <p>INT: {shinobi.INT}</p>
-          <p>PER: {shinobi.PER}</p>
-          <p>CAR: {shinobi.CAR}</p>
-          <p>FOC: {shinobi.FOC}</p>
-        </div>
+
+        
       </SectionBox>
       <SectionBox className="card">
-        <TextArea 
-          title="bio"
-          id="General_ipt-bio"/>
+        <TextArea
+          title="Descrição"
+          id="General_ipt-bio"
+          rows="5" />
+      </SectionBox>
+      <SectionBox>
+        <TextArea
+          title="Genero"
+          id="General_ipt-genero" />
+        <TextArea
+          title="Idade"
+          id="General_ipt-idade" />
       </SectionBox>
     </section>
   );
