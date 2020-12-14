@@ -8,8 +8,6 @@ function General(props) {
 
   const shinobi = props.shinobi;
 
-  const [bio, setBio] = useState(shinobi._bio);
-
   return (
     <section className="General">
       <SectionBox>
@@ -18,32 +16,41 @@ function General(props) {
           title="Apelido/titulo"
           id="General_ipt-name"
           placeholder="Relampago de Konoha"
-          rows="3" 
+          rows="3"
+          data={shinobi._title}
+          name="_title"
+          setData={props.handlerChangeProps}
           />
       </SectionBox>
       <SectionBox>
 
-        <TextArea 
+        {/* <TextArea 
           title="País de Origem"
-          id="General_ipt-pais"/>
+          id="General_ipt-pais"/> */}
         <TextArea 
           title="Clã"
-          id="General_ipt-cla"/>
+          id="General_ipt-cla"
+          data={shinobi._cla}
+          name="_cla"
+          setData={props.handlerChangeProps}/>
       </SectionBox>
       <SectionBox className="card">
         <TextArea
           title="Descrição"
           id="General_ipt-bio"
-          rows="5" />
+          rows="5"
+          data={shinobi._bio}
+          name="_bio"
+          setData={props.handlerChangeProps}/>
       </SectionBox>
-      <SectionBox>
+      {/* <SectionBox>
         <TextArea
           title="Genero"
           id="General_ipt-genero" />
         <TextArea
           title="Idade"
           id="General_ipt-idade" />
-      </SectionBox>
+      </SectionBox> */}
     </section>
   );
 }

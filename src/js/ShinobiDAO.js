@@ -6,12 +6,16 @@ class ShinobiDAO {
   }
 
   static example() {
-    return new Shinobi("Tanzan", "Haruno");
+    return new Shinobi({_name:"Tanzan", _cla:"Haruno"});
   }
 
-  add(name) {
+  static new(_name) {
+    return new Shinobi({_name});
+  }
 
-    const shinobi = new Shinobi(name);
+  add(_name) {
+
+    const shinobi = new Shinobi({_name});
     
     return new Promise((resolve, reject) => {
       const transaction = this.db.transaction(["shinobis"], "readwrite");
@@ -30,6 +34,26 @@ class ShinobiDAO {
     })
   }
 
+  put(shinobi) {
+
+    return new Promise((resolve, reject) => {
+
+      const transaction = this.db.transaction(["shinobis"], "readwrite");
+
+      const request = transaction
+        .objectStore("shinobis")
+        .put(shinobi);
+
+      request.onsuccess = e => {
+        resolve("registro atualizado com sucesso");
+      }
+
+      request.onerror = e => {
+        reject("erro ao efetua put");
+      }
+    })
+  }
+
   get(id) {
 
     return new Promise((resolve, reject) => {
@@ -40,7 +64,7 @@ class ShinobiDAO {
 
       request.onsuccess = event => {
         
-        resolve(new Shinobi(...(Object.values(request.result))));
+        resolve(new Shinobi((request.result)));
       }
     })
   }
@@ -59,7 +83,7 @@ class ShinobiDAO {
         let cursor = event.target.result;
 
         if (cursor) {
-          shinobiList.push(new Shinobi(...(Object.values(cursor.value))))
+          shinobiList.push(cursor.value)
           cursor.continue();
         } else {
           devMode && console.log(shinobiList)
@@ -95,30 +119,31 @@ class ShinobiDAO {
 }
 
 class Shinobi {
-  constructor(name, id, cla, position, bio, FOR, RES, AGL, DEX, PER, INT, CAR, FOC) {
-    this._name = name || " ";
-    this.id = id || Date.now();
-    this._cla = cla || " ";
-    this._position = position || " ";
+  constructor(obj) {
+    this._name = obj._name || " ";
+    this._cla = obj._cla || " ";
+    this._position = obj._position || " ";
+    
+    this._title = obj._title;
 
-
-    this._bio = bio || "";
-
-    this._FOR = FOR || 5;
-    this._RES = RES || 5;
-    this._AGL = AGL || 5;
-    this._DEX = DEX || 5;
-    this._PER = PER || 5;
-    this._INT = INT || 5;
-    this._CAR = CAR || 5;
-    this._FOC = FOC || 5;
-
+    this._bio = obj._bio || "";
+    
+    this._FOR = obj._FOR || 5;
+    this._RES = obj._RES || 5;
+    this._AGL = obj._AGL || 5;
+    this._DEX = obj._DEX || 5;
+    this._PER = obj._PER || 5;
+    this._INT = obj._INT || 5;
+    this._CAR = obj._CAR || 5;
+    this._FOC = obj._FOC || 5;
+    
     this._maxHP = undefined;
     this._actHP = undefined;
     this._maxCK = undefined;
     this._actCK = undefined;
-
+    
     this._ckType = [];
+    this.id = obj.id || Date.now();
   }
 
   get fullName() {

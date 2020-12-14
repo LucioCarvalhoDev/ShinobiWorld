@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import Header from "../Header/Header";
 
 import shinobiController from "./../../js/ShinobiController";
-import AddButton from "./components/AddButton/";
+import FixedButton from "./../FixedButton/";
 import CharacterCard from "./components/CharacterCard/";
 import ModalAdd from "./components/ModalAdd";
 
@@ -49,7 +49,9 @@ function CharacterList(props) {
         {modalAdd && <ModalAdd addShinobi={props.addShinobi} close={handlerModalAdd}/>}
       </ul>
 
-      <AddButton action={handlerModalAdd}/>
+      <FixedButton action={handlerModalAdd}>
+      <i className="fas fa-plus"></i>
+      </FixedButton>
     </div>
   );
 }
