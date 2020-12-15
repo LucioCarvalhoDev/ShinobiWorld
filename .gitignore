@@ -1,7 +1,2 @@
 node_modules/
-public/
-src/
-devHelper.js
-packtage-lock.json
-packtage.json
-README.md
+build/
