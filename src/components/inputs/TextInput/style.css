@@ -2,10 +2,10 @@
     border: 1px solid #8d7050;
     padding: .124rem;
     border-radius: 5px;
-    min-height: 2rem;
+    min-height: 1.55rem;
     position: relative;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     margin: 5px 0px;
     background: #fdfdfd;
     margin-bottom: 1rem;
@@ -23,7 +23,7 @@
 .TextInput input {
     border: none;
     width: 100%;
-    min-height: 1.25rem;
+    height: 1rem;
     padding: 0 5px;
 }
 
