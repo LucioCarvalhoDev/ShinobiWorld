@@ -16,7 +16,7 @@ function General(props) {
           title="Apelido/titulo"
           id="General_ipt-name"
           placeholder="Relampago de Konoha"
-          rows="3"
+          rows="1"
           data={shinobi._title}
           name="_title"
           setData={props.handlerChangeProps}
@@ -32,7 +32,8 @@ function General(props) {
           id="General_ipt-cla"
           data={shinobi._cla}
           name="_cla"
-          setData={props.handlerChangeProps}/>
+          setData={props.handlerChangeProps}
+          rows="1"/>
       </SectionBox>
       <SectionBox className="card">
         <TextArea

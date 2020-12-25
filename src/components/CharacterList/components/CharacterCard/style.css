@@ -6,11 +6,15 @@
     min-height: 2rem;
     box-sizing: border-box;
     padding: 0 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .CharacterCard:hover {
     cursor: pointer;
+}
+
+.CharacterCard div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--primary-color);
 }

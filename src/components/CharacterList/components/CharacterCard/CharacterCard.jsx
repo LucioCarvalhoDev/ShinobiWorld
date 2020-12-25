@@ -10,9 +10,9 @@ function CharacterCard(props) {
     <article className="CharacterCard">
       <div>
         <h3 className="CharacterCard_name">{shinobi._name}</h3>
-        <p className="CharacterCard_summary">{shinobi._bio}</p>
+        <i className="fas fa-trash"></i>
       </div>
-      <i className="fas fa-trash"></i>
+        <p className="CharacterCard_summary">{shinobi._bio}</p>
     </article>
   );
 }
