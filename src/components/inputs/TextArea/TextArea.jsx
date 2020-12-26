@@ -12,7 +12,7 @@ function TextArea(props) {
   const setData = props.setData ? props.setData : ()=>{};
 
   useEffect(() => {
-    setWidth(document.querySelector(`label[for=${props.id}]`).offsetWidth)
+    setWidth(document.querySelector(`label[for=${props.id}]`).offsetWidth);
   })
 
     return (

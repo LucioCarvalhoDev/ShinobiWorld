@@ -3,6 +3,7 @@ import shinobiController from "./../../js/ShinobiController";
 import FixedButton from "../FixedButton";
 import Header from "./../Header";
 import General from "./components/General";
+import Status from "./components/Status";
 import Nav from "./components/Nav";
 import "./style.css";
 
@@ -23,7 +24,7 @@ function ShinobiProfile(props) {
 
   const pages = [
     <General shinobi={shinobi} handlerChangeProps={handlerChangeProps} />,
-    <p>example</p>
+    <Status shinobi={shinobi} handlerChangeProps={handlerChangeProps}/>
   ];
 
   return (

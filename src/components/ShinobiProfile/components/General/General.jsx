@@ -23,10 +23,6 @@ function General(props) {
           />
       </SectionBox>
       <SectionBox>
-
-        {/* <TextArea 
-          title="País de Origem"
-          id="General_ipt-pais"/> */}
         <TextArea 
           title="Clã"
           id="General_ipt-cla"

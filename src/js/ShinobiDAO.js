@@ -127,15 +127,17 @@ class Shinobi {
     this._title = obj._title;
 
     this._bio = obj._bio || "";
-    
-    this._FOR = obj._FOR || 5;
-    this._RES = obj._RES || 5;
-    this._AGL = obj._AGL || 5;
-    this._DEX = obj._DEX || 5;
-    this._PER = obj._PER || 5;
-    this._INT = obj._INT || 5;
-    this._CAR = obj._CAR || 5;
-    this._FOC = obj._FOC || 5;
+
+    this._attr = {
+      FOR: obj.FOR || 5,
+      RES: obj.RES || 5,
+      AGL: obj.AGL || 5,
+      DEX: obj.DEX || 5,
+      PER: obj.PER || 5,
+      INT: obj.INT || 5,
+      CAR: obj.CAR || 5,
+      FOC: obj.FOC || 5,
+    }
     
     this._maxHP = undefined;
     this._actHP = undefined;
@@ -144,6 +146,8 @@ class Shinobi {
     
     this._ckType = [];
     this.id = obj.id || Date.now();
+
+    this.init();
   }
 
   get fullName() {
@@ -201,6 +205,11 @@ class Shinobi {
 
   updateMaxCK() {
     this._maxCK = Math.round(this._INT * 5 + this.PER);
+  }
+
+  init() {
+    this.updateMaxCK();
+    this.updateMaxHP();
   }
 }
 
