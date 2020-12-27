@@ -6,7 +6,7 @@ import "./style.css";
 
 function ModalAdd(props) {
 
-	let action = !props.action ? (() => { }) : props.action;
+	// let action = !props.action ? (() => { }) : props.action;
 
 	const [text, setText] = useState("");
 
@@ -18,11 +18,11 @@ function ModalAdd(props) {
 
 	return (
 		<section className="ModalAdd" onClick={(e) => {
-			if (e.target.className == "ModalAdd") props.close();
+			if (e.target.className === "ModalAdd") props.close();
 		}}>
 			<form className="ModalAdd_modal">
 				<TextInput title="Primeiro Nome" text={setText} />
-				<Button title="Criar" style="dark" action={handlerAddShinobi} />
+				<Button title="Criar" styleMode="dark" action={handlerAddShinobi} />
 			</form>
 		</section>
 

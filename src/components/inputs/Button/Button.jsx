@@ -4,7 +4,7 @@ import "./style.css";
 
 function Button(props) {
 
-    let styleMode = !props.style ? "light" : "dark"
+    let styleMode = !props.styleMode ? "light" : "dark"
     let action = !props.action ? (() => { }) : props.action;
 
     return (

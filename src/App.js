@@ -10,13 +10,14 @@ import "./styles.css";
 
 export default function App() {
 
-  const [shinobi, setShinobi] = useState(ShinobiDAO.example());
+  const [shinobi, setShinobi] = useState({});
 
   function goToShinobiProfile(id) {
   	shinobiController
   		.get(id)
   		.then(res => {
-  			setShinobi(res);
+        setShinobi(res);
+        console.log("res", res._attr.FOR)
   			setPageIdx(1);
   		})
   }

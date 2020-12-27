@@ -14,7 +14,6 @@ class ShinobiDAO {
   }
 
   add(_name) {
-
     const shinobi = new Shinobi({_name});
     
     return new Promise((resolve, reject) => {
@@ -64,7 +63,9 @@ class ShinobiDAO {
 
       request.onsuccess = event => {
         
-        resolve(new Shinobi((request.result)));
+        const newShinobi = new Shinobi((request.result));
+        
+        resolve(newShinobi);
       }
     })
   }
@@ -120,6 +121,10 @@ class ShinobiDAO {
 
 class Shinobi {
   constructor(obj) {
+    if (obj._attr === undefined) {
+      obj._attr = {}
+    }
+    
     this._name = obj._name || " ";
     this._cla = obj._cla || " ";
     this._position = obj._position || " ";
@@ -129,14 +134,14 @@ class Shinobi {
     this._bio = obj._bio || "";
 
     this._attr = {
-      FOR: obj.FOR || 5,
-      RES: obj.RES || 5,
-      AGL: obj.AGL || 5,
-      DEX: obj.DEX || 5,
-      PER: obj.PER || 5,
-      INT: obj.INT || 5,
-      CAR: obj.CAR || 5,
-      FOC: obj.FOC || 5,
+      FOR: obj._attr.FOR || 5,
+      RES: obj._attr.RES || 5,
+      AGL: obj._attr.AGL || 5,
+      DEX: obj._attr.DEX || 5,
+      PER: obj._attr.PER || 5,
+      INT: obj._attr.INT || 5,
+      CAR: obj._attr.CAR || 5,
+      FOC: obj._attr.FOC || 5,
     }
     
     this._maxHP = undefined;
@@ -152,38 +157,6 @@ class Shinobi {
 
   get fullName() {
     return `${this._name} ${this._cla}`;
-  }
-
-  get FOR() {
-    return this._FOR;
-  }
-
-  get RES() {
-    return this._RES;
-  }
-
-  get AGL() {
-    return this._AGL;
-  }
-
-  get PER() {
-    return this._PER;
-  }
-
-  get DEX() {
-    return this._DEX;
-  }
-
-  get INT() {
-    return this._INT;
-  }
-
-  get CAR() {
-    return this._CAR;
-  }
-
-  get FOC() {
-    return this._FOC;
   }
 
   get rank() {

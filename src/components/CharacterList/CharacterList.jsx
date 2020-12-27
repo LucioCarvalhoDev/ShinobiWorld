@@ -33,7 +33,7 @@ function CharacterList(props) {
           return (
             <li onClick={(e) => {
               if (!e.target.classList.contains("fas")) {
-
+                
                 props.goToShinobiProfile(shinobi.id);
               } else {
 

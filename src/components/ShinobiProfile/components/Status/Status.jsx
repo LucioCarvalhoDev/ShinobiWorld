@@ -11,7 +11,7 @@ function Status(props) {
     return (
         <section className="Status">
             <SectionBox>
-                <AttrTable shinobi={shinobi}/>
+                <AttrTable shinobi={shinobi} setData={props.handlerChangeProps}/>
             </SectionBox>
         </section>
     );

@@ -12,13 +12,11 @@ function ShinobiProfile(props) {
   const [shinobi, setShinobi] = useState(props.shinobi);
 
   function handlerChangeProps(changes) {
-
     const newData = shinobi;
     for (const key in changes) {
       if (changes[key] === undefined) continue;
       newData[key] = changes[key]
     }
-
     setShinobi(newData);
   }
 
@@ -36,7 +34,13 @@ function ShinobiProfile(props) {
         pages={["General", "Status", "Techniques", "Inventory"]}
         setter={setIdx}
       />
-      <FixedButton style={{bottom: "4.5rem"}} action={()=>shinobiController.put(shinobi)}>
+      <FixedButton style={{bottom: "4.5rem"}} action={()=>{
+          shinobiController
+            .put(shinobi)
+            .catch(msg => {
+              console.log(msg)
+            })
+        }}>
         <i className="far fa-save"></i>
       </FixedButton>
     </div>

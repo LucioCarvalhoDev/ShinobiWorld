@@ -5,7 +5,7 @@ function Header(props) {
 
 	let button = "";
 
-	let func = new Function();
+	let func = Function;
 
 	if (props.activeReturn) {
 

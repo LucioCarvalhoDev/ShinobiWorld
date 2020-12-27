@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import TextArea from "../../../inputs/TextArea/TextArea";
 import SectionBox from "./../SectionBox";
 
