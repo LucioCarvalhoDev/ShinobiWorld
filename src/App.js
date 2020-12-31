@@ -17,7 +17,6 @@ export default function App() {
   		.get(id)
   		.then(res => {
         setShinobi(res);
-        console.log("res", res._attr.FOR)
   			setPageIdx(1);
   		})
   }

@@ -35,19 +35,17 @@ function AttrTable(props) {
     
     return (
         <section className="AttrTable">
-            <div className="physical">
                 {Object.keys(props.shinobi._attr).map((str, id) => {
                     return (
-                        <div key={id}>
+                        <div className="AttrTable_attr" key={id}>
                             <span>{str}: {eval(`${str}`)}</span>
-                            <span>
+                            <span className="AttrTable_attr_box-button">
                                 <button onClick={() => handlerIncrementAttr(str, -1)}>-</button>
                                 <button onClick={() => handlerIncrementAttr(str, +1)}>+</button>
                             </span>
                         </div>
                     )
                 })}
-            </div>
         </section>
     );
 }

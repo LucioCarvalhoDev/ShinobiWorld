@@ -8,7 +8,7 @@ import Nav from "./components/Nav";
 import "./style.css";
 
 function ShinobiProfile(props) {
-  const [idx, setIdx] = useState(0);
+  const [idx, setIdx] = useState(1);
   const [shinobi, setShinobi] = useState(props.shinobi);
 
   function handlerChangeProps(changes) {
