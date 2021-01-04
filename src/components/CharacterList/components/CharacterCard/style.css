@@ -1,11 +1,15 @@
 .CharacterCard {
     background: var(--secundary-color);
-    margin: 0 auto;
+    margin: 0 5px;
     margin-bottom: 5px;
-    width: 98vw;
     min-height: 2rem;
     box-sizing: border-box;
     padding: 0 5px;
+}
+
+.CharacterCard_summary {
+    max-height: 5.5rem;
+    overflow: hidden;
 }
 
 .CharacterCard:hover {

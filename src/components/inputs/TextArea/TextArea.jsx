@@ -13,23 +13,20 @@ function TextArea(props) {
 
   useEffect(() => {
     setWidth(document.querySelector(`label[for=${props.id}]`).offsetWidth);
-  })
+  }, [width])
 
     return (
         <div className="TextArea">
           <div className="TextArea_background" style={style}></div>
           <label htmlFor={props.id}>{props.title}</label>
           <textarea 
-            defaultValue={props.data}
+            defaultValue={props.data[props.name]}
             id={props.id} 
             type="text" 
             placeholder={props.placeholder} 
             rows={props.rows}
-            onChange={(e) => {
-              const obj = {};
-
-              obj[props.name] = e.target.value;
-              setData(obj);
+            onBlur={(e) => {
+              props.setData(e);
             }}/>
         </div>
     );

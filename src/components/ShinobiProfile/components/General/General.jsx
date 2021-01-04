@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TextArea from "../../../inputs/TextArea/TextArea";
 import SectionBox from "./../SectionBox";
 
@@ -17,37 +17,41 @@ function General(props) {
           id="General_ipt-name"
           placeholder="Relampago de Konoha"
           rows="1"
-          data={shinobi._title}
+          data={shinobi}
           name="_title"
-          setData={props.handlerChangeProps}
-          />
+          setData={(e) => {
+            var {_title} = props.shinobi;
+            _title = e.target.value;
+            props.setShinobi({...props.shinobi, _title})
+          }}
+        />
       </SectionBox>
       <SectionBox>
-        <TextArea 
+        <TextArea
           title="Clã"
           id="General_ipt-cla"
-          data={shinobi._cla}
+          data={shinobi}
           name="_cla"
-          setData={props.handlerChangeProps}
-          rows="1"/>
+          setData={(e) => {
+            var {_cla} = props.shinobi;
+            _cla = e.target.value;
+            props.setShinobi({...props.shinobi, _cla})
+          }}
+          rows="1" />
       </SectionBox>
       <SectionBox className="card">
         <TextArea
           title="Descrição"
           id="General_ipt-bio"
           rows="5"
-          data={shinobi._bio}
+          data={shinobi}
           name="_bio"
-          setData={props.handlerChangeProps}/>
+          setData={(e) => {
+            var {_bio} = props.shinobi;
+            _bio = e.target.value;
+            props.setShinobi({...props.shinobi, _bio})
+          }} />
       </SectionBox>
-      {/* <SectionBox>
-        <TextArea
-          title="Genero"
-          id="General_ipt-genero" />
-        <TextArea
-          title="Idade"
-          id="General_ipt-idade" />
-      </SectionBox> */}
     </section>
   );
 }

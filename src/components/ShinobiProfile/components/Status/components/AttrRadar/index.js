@@ -1,3 +1,3 @@
-import AttrTable from "../AttrTable/AttrTable";
+import AttrTable from "../../../Status/components/AttrTable/AttrTable";
 import AttrRadar from "./AttrRadar";
-export default AttrTable;
+export default AttrRadar;

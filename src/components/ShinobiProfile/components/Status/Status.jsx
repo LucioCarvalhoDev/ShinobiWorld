@@ -1,22 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SectionBox from '../SectionBox';
+import AttrRadar from './components/AttrRadar';
 import AttrTable from './components/AttrTable/AttrTable';
-import AttrRadar from "./components/AttrRadar/AttrRadar";
 
 import "./style.css";
 
 function Status(props) {
 
-    const shinobi = props.shinobi;
+    
 
     return (
         <section className="Status">
-            <SectionBox>
-                <AttrTable shinobi={shinobi} setData={props.handlerChangeProps}/>
-            </SectionBox>
-            <SectionBox>
-                <AttrRadar shinobi={shinobi} setData={props.handlerChangeProps}/>
-            </SectionBox>
+            <div className="Status_attr">
+                <SectionBox>
+                    <AttrTable shinobi={props.shinobi} setShinobi={props.setShinobi} />
+                </SectionBox>
+                <SectionBox>
+                    <AttrRadar shinobi={props.shinobi} />
+                </SectionBox>
+            </div>
+
         </section>
     );
 }

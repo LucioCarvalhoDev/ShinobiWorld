@@ -4,8 +4,6 @@
   box-sizing: border-box;
 }
 
-
-
 .ShinobiProfile_status {
   display: grid;
   grid-template-columns: 1fr 1fr;

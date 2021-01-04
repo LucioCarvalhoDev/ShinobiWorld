@@ -1,22 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Chart from "chart.js";
 
 import "./style.css";
 
 function AttrRadar(props) {
 
-    const shinobi = props.shinobi;
-
     useEffect(() => {
-        const target = document.querySelector(".AttrRadar canvas");
+        const target = document.querySelector("#chart");
         const radar = new Chart(target, {
             type: "radar",
             data: {
-                labels: Object.keys(shinobi._attr),
+                labels: Object.keys(props.shinobi._attr),
                 datasets: [
                     {
                         label: "Sasaki",
-                        data: Object.values(shinobi._attr)
+                        data: Object.values(props.shinobi._attr)
                     }
                 ]
             },
@@ -25,19 +23,25 @@ function AttrRadar(props) {
                     ticks: {
                         beginAtZero: true,
                         callback: function () { return "" },
-                        backdropColor: "rgba(0, 0, 0, 0)"
+                        backdropColor: "rgba(0, 0, 0, 0)",
+                        max: 5+(Math.max(...Object.values(props.shinobi._attr)))
                     }
                 },
                 legend: {
                     display: false
-                }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                aspectRatio: 1
             }
         })
-    })
+    }, [props.shinobi])
 
     return (
         <section className="AttrRadar">
-            <canvas></canvas>
+            <div className="chart-container">
+                <canvas id="chart"></canvas>
+            </div>
         </section>
     );
 }

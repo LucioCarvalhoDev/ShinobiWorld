@@ -155,7 +155,7 @@ class Shinobi {
     this.init();
   }
 
-  get fullName() {
+  fullName() {
     return `${this._name} ${this._cla}`;
   }
 
