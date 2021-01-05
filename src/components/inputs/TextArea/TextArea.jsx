@@ -13,7 +13,7 @@ function TextArea(props) {
 
   useEffect(() => {
     setWidth(document.querySelector(`label[for=${props.id}]`).offsetWidth);
-  }, [width])
+  }, [width, props.id])
 
     return (
         <div className="TextArea">
@@ -26,7 +26,7 @@ function TextArea(props) {
             placeholder={props.placeholder} 
             rows={props.rows}
             onBlur={(e) => {
-              props.setData(e);
+              setData(e);
             }}/>
         </div>
     );

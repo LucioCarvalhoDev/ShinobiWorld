@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import shinobiController from "./../../../../../../js/ShinobiController"
+import React from 'react';
 
 import "./style.css";
 

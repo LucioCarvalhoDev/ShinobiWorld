@@ -14,3 +14,32 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
 }
+
+#ui-msg {
+  width: 100%;
+  height: 2rem;
+  position: fixed;
+  bottom: 3.5rem;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes mymove {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  /* 70% {opacity: 1;} */
+  100% {opacity: 0;}
+}
+#ui-msg div {
+  background: rgb(63, 63, 63);
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  height: 100%;
+  border-radius: 50px;
+  font-weight: 500;
+  color: #fdfdfd;
+  animation: mymove 1s forwards;
+}

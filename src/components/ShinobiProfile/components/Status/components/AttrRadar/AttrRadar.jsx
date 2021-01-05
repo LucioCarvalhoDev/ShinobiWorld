@@ -2,11 +2,15 @@ import React, { useEffect } from "react";
 import Chart from "chart.js";
 
 import "./style.css";
+import shinobiController from "../../../../../../js/ShinobiController";
 
 function AttrRadar(props) {
 
     useEffect(() => {
         const target = document.querySelector("#chart");
+
+        target.onclick = () => {shinobiController.uiMessenger(handlerShowRank())}
+        // eslint-disable-next-line
         const radar = new Chart(target, {
             type: "radar",
             data: {
@@ -35,12 +39,17 @@ function AttrRadar(props) {
                 aspectRatio: 1
             }
         })
-    }, [props.shinobi])
+    })
+
+    function handlerShowRank() {
+        let sum = (Object.values(props.shinobi._attr)).reduce((acc, cur) => acc+cur, 0);
+        return `Poder: ${sum}`;
+    }
 
     return (
         <section className="AttrRadar">
             <div className="chart-container">
-                <canvas id="chart"></canvas>
+                <canvas onClick={console.log("pah")} id="chart"></canvas>
             </div>
         </section>
     );

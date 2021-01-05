@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import SectionBox from '../SectionBox';
 import AttrRadar from './components/AttrRadar';
 import AttrTable from './components/AttrTable/AttrTable';

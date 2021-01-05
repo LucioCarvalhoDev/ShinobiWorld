@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import TextArea from "../../../inputs/TextArea/TextArea";
 import SectionBox from "./../SectionBox";
 
@@ -11,10 +11,21 @@ function General(props) {
   return (
     <section className="General">
       <SectionBox>
-
+        <TextArea 
+          title="Nome"
+          id="General_ipt-name"
+          rows="1"
+          data={shinobi}
+          name="_name"
+          setData={(e) => {
+            var {_name} = shinobi;
+            _name = e.target.value;
+            props.setShinobi({...shinobi, _name});
+          }}
+        />
         <TextArea
           title="Apelido/titulo"
-          id="General_ipt-name"
+          id="General_ipt-title"
           placeholder="Relampago de Konoha"
           rows="1"
           data={shinobi}

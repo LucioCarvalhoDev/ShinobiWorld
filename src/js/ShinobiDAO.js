@@ -1,8 +1,9 @@
-const devMode = false;
+
 
 class ShinobiDAO {
   constructor(db) {
     this.db = db;
+    this.devMode = false;
   }
 
   static example() {
@@ -33,7 +34,7 @@ class ShinobiDAO {
     })
   }
 
-  put(shinobi) {
+  put(shinobi, options) {
 
     return new Promise((resolve, reject) => {
 
@@ -44,11 +45,11 @@ class ShinobiDAO {
         .put(shinobi);
 
       request.onsuccess = e => {
-        resolve("registro atualizado com sucesso");
+        resolve(this.devMode ? "put ok" : options.ui ? "Salvo" : "");
       }
 
       request.onerror = e => {
-        reject("erro ao efetua put");
+        reject(this.devMode ? "put ERROR" : null);
       }
     })
   }
@@ -87,13 +88,13 @@ class ShinobiDAO {
           shinobiList.push(cursor.value)
           cursor.continue();
         } else {
-          devMode && console.log(shinobiList)
+          this.devMode && console.log(shinobiList)
           resolve(shinobiList)
         }
       }
 
       request.onerror = event => {
-        resolve("erro ao carregar dados");
+        reject("erro ao carregar dados");
       }
     })
   }
@@ -159,16 +160,17 @@ class Shinobi {
     return `${this._name} ${this._cla}`;
   }
 
-  get rank() {
+  rank() {
     return (
-      this.FOR +
-      this.RES +
-      this.AGL +
-      this.DEX +
-      this.INT +
-      this.PER +
-      this.CAR +
-      this.FOC
+      this._attr.FOR +
+      this._attr.FOR +
+      this._attr.RES +
+      this._attr.AGL +
+      this._attr.DEX +
+      this._attr.INT +
+      this._attr.PER +
+      this._attr.CAR +
+      this._attr.FOC
     );
   }
 

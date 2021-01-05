@@ -14,9 +14,11 @@ function ShinobiProfile(props) {
   }
 
   useEffect(() => {
-    console.log('pah')
     shinobiController
-      .put(props.shinobi)
+      .put(props.shinobi, {ui: true})
+      .then(res => {
+        shinobiController.uiMessenger(res)
+      })
       .catch(msg => {
         console.log(msg)
       })

@@ -13,7 +13,7 @@ export default function App() {
 
   function goToShinobiProfile(id) {
   	shinobiController
-  		.get(id)
+  		.get(id, {ui: false})
   		.then(res => {
         setShinobi(res);
   			setPageIdx(1);
@@ -32,12 +32,18 @@ export default function App() {
       shinobi={shinobi} 
       setShinobi={setShinobi}
       goToCharacterList={goToCharacterList} />
-  ]
+  ];
 
 
 
   const [pageIdx, setPageIdx] = useState(0);
 
 
-  return pages[pageIdx];
+  return (
+    <>
+    {pages[pageIdx]}
+    <div id="ui-msg">
+    </div>
+    </>
+  );
 }
